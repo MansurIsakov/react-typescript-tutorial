@@ -8,16 +8,17 @@ import { ChangeEventHandler } from "react";
  * and returns it along with a union with all of its
  * keys turned to undefined.
  */
-export type InputProps = (
+
+type MakeOptional<T> =
+  | T
   | {
-      value: string;
-      onChange: ChangeEventHandler;
-    }
-  | {
-      value?: undefined;
-      onChange?: undefined;
-    }
-) & {
+      [K in keyof T]?: undefined;
+    };
+
+export type InputProps = MakeOptional<{
+  value: string;
+  onChange: ChangeEventHandler;
+}> & {
   label: string;
 };
 

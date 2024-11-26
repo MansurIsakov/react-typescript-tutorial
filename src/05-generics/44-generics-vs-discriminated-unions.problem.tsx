@@ -12,23 +12,35 @@
  *
  * 2. There's a way of writing this type (and the component!) without
  * generics that's much simpler. Try to figure out how to do that.
+ *
  */
 
-export type ModalProps<TVariant extends PossibleVariants> = {
-  isOpen: boolean;
-  variant: TVariant;
-} & (TVariant extends "with-button"
-  ? {
+type ModalProps = (
+  | {
+      variant: "with-button";
       buttonLabel: string;
       onButtonClick: () => void;
     }
-  : {});
+  | {
+      variant: "without-button";
+    }
+) & {
+  isOpen: boolean;
+};
+
+// export type ModalProps = {
+//   isOpen: boolean;
+//   variant: TVariant;
+// } & (TVariant extends "with-button"
+//   ? {
+//       buttonLabel: string;
+//       onButtonClick: () => void;
+//     }
+//   : {});
 
 export type PossibleVariants = "with-button" | "without-button";
 
-export const Modal = <TVariant extends PossibleVariants>(
-  props: ModalProps<TVariant>,
-) => {
+export const Modal = (props: ModalProps) => {
   // ...
   return null;
 };
