@@ -11,7 +11,9 @@ import { Equal, Expect } from "../helpers/type-utils";
  * 1. Find a way to fix the errors below.
  */
 
-export const useId = (defaultId: string) => {
+export const useId = (
+  defaultId: string
+): [string, React.Dispatch<React.SetStateAction<string>>] => {
   const [id, setId] = useState(defaultId);
 
   return [id, setId];
@@ -21,5 +23,5 @@ const [id, setId] = useId("1");
 
 type tests = [
   Expect<Equal<typeof id, string>>,
-  Expect<Equal<typeof setId, React.Dispatch<React.SetStateAction<string>>>>,
+  Expect<Equal<typeof setId, React.Dispatch<React.SetStateAction<string>>>>
 ];
