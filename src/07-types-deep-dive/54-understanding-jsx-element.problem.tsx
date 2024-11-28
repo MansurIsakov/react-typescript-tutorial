@@ -12,7 +12,7 @@ type ClickMeThree = React.ReactNode;
 /**
  * 2. What is the return type of this Component?
  */
-const Component = () => {
+const Component = (): React.ReactNode => {
   return <div>Hello world</div>;
 };
 
@@ -48,6 +48,6 @@ const Component3 = (): React.ReactElement => {
 /**
  * 4b. ...but this one does?
  */
-const Component4 = (): React.ReactElement => {
+const Component4 = (): ClickMeThree => {
   return "hello!";
 };

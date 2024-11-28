@@ -24,7 +24,7 @@ const Option = () => {
   return (<option></option>) as OptionType;
 };
 
-const Select = (props: { children: OptionType }) => {
+const Select = (props: { children: React.ReactElement<OptionType> }) => {
   return <select>{props.children}</select>;
 };
 
