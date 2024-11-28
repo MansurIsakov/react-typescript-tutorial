@@ -17,7 +17,7 @@ interface ModalChildProps {
   closeModal: () => void;
 }
 
-const Modal = ({ children }: any) => {
+const Modal = ({ children }: { children: React.FC<ModalChildProps> }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -31,7 +31,7 @@ const Modal = ({ children }: any) => {
         <div>
           <h1>Modal</h1>
         </div>,
-        document.getElementById("modal-root")!,
+        document.getElementById("modal-root")!
       )}
     </>
   );
